@@ -2,6 +2,8 @@ from flask import Flask, request
 #request object allows us to access data in request user sent to server
 #via python 
 
+#GET refers to a query/methods parameter via request.arg.get('param_name')
+
 app = Flask(__name__)
 app.config['DEBUG'] = True
 
