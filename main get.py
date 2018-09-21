@@ -21,7 +21,7 @@ form = """
 </head>
 
 <body>
-    <form action="/hello" method="post">
+    <form action="/hello" method="get">
         <label for salutation>Salutation:</label>
         <select id="salutation" name="salutation">
             <option value="Mr. ">Mr.</option>
@@ -52,13 +52,13 @@ def index():
 Write code to handle our submission to allow a form
 to be processed (can customize hello world message)"""
 
-@app.route("/hello", methods=['POST']) #Add methods for post request
+@app.route("/hello")
 
 def greeting():
     #use get request object by using request.args.get with name
-    salutation = request.form['salutation'] #.form[] vs. .args.get()
-    user_name = request.form['user_name']
-    origin_city = request.form['origin_city']
+    salutation = request.args.get('salutation')
+    user_name = request.args.get('user_name')
+    origin_city = request.args.get('origin_city')
 
     greeting = '<h1>Hello, ' + salutation + user_name + '!</h1> <h3>We hope you had a safe trip from ' + origin_city + '!</h3>'
 
@@ -66,8 +66,9 @@ def greeting():
 
 
 """
-#For POST request, data not exposed in URL:
-http://127.0.0.1:5000/hello
+http://127.0.0.1:5000/hello?user_name=Miles+%26+Dominic
+
+http://127.0.0.1:5000/hello?salutation=Mr.+&user_name=Keithley&origin_city=St.+Charles%2C+MO
 """
 
 

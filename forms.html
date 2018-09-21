@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Hello Flask: Form</title>
+</head>
+<body>
+
+    <form action="https://duckduckgo.com" method="get"> <!--The where of form submission. GET is default method.-->
+        <label for="search-term">Search term:</label>
+            <input id="search-term" type="text" name="q">
+            <!--Server expect q, not any other name. NAMES VERY IMPORTANT FOR LINKING TO DATA-->
+
+        <input type="submit">
+    </form>
+
+    <h2>My Favorite Searches:</h2>
+    <ul>
+        <li><a href="https://duckduckgo.com/?q=wedding+ideas"> Wedding Ideas</li>
+        <li><a href="https://duckduckgo.com/?q=wedding+dresses"> Wedding Dresses</li>
+        <li><a href="https://duckduckgo.com/?q=wedding+venues+missouri">Wedding Venues Missouri</li>
+    </ul>
+
+
+</body>
+</html>
+
+<!--https://duckduckgo.com/?q=wedding+ideas&ia=web
+https:// << PROTOCOL
+duckduckgo.com << DOMAIN
+?q=wedding+ideas << QUERY STRING
+-->
+
+
+
+<!--10:30 in video-->
