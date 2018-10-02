@@ -1,7 +1,7 @@
 from flask import Flask, request
 #request object allows us to access data in request user sent to server
 #via python 
-
+import cgi
 import os # ADDED FOR TEMPLATES
 import jinja2 # ADDED FOR TEMPLATES
 
@@ -27,7 +27,7 @@ form that user can interact with"""
 def index():
     # USE JINJA ENGINE TO RENDER THE FORM INSTEAD OF SIMPLY RETURNING THE FORM DIRECTLY
     template = jinja_env.get_template('hello_form.html') # TELLS JINJA TO GO FIND TEMPLATE hello_form.html FOR ME
-    return template.render() # RENDERS TEMPLATE INTO A STRING
+    return template.render() # RENDERS TEMPLATE INTO A STRING VS. JUST RETURNING form
 
 
 """GOAL 2:
@@ -42,7 +42,7 @@ def greeting():
     user_name = request.form['user_name']
     origin_city = request.form['origin_city']
 
-    greeting = '<h1>Hello, ' + salutation + user_name + '!</h1> <h3>We hope you had a safe trip from ' + origin_city + '!</h3>'
+    greeting = '<h1>Hello, ' + cgi.escape(salutation) + cgi.escape(user_name) + '!</h1> <h3>We hope you had a safe trip from ' + cgi.escap(origin_city) + '!</h3>'
 
     return greeting
 
