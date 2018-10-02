@@ -20,15 +20,14 @@ form that user can interact with"""
 
 #Create global variable
 
-form = """
 
-
-"""
 
 @app.route("/")
 
 def index():
-    return form
+    # USE JINJA ENGINE TO RENDER THE FORM INSTEAD OF SIMPLY RETURNING THE FORM DIRECTLY
+    template = jinja_env.get_template('hello_form.html') # TELLS JINJA TO GO FIND TEMPLATE hello_form.html FOR ME
+    return template.render() # RENDERS TEMPLATE INTO A STRING
 
 
 """GOAL 2:
