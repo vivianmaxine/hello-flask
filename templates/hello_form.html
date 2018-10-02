@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Hello Flask Form</title>
+</head>
+
+<body>
+    <form action="/hello" method="post">
+        <label for salutation>Salutation:</label>
+        <select id="salutation" name="salutation">
+            <option value="Mr. ">Mr.</option>
+            <option value="Miss ">Miss</option>
+            <option value="Ms. ">Ms.</option>
+            <option value="Ms. ">Ms.</option>
+        </select>
+        <p><label for first_name>First Name:</label>
+        <input id="first_name" type="text" name="user_name"></p>
+        <p><label for origin_city>City of Origin:</label>
+        <input id="origin_city" type="text" name="origin_city"></p>
+        <input type="submit">
+
+    </form>
+
+</body>
+</html>
