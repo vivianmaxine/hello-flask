@@ -2,6 +2,15 @@ from flask import Flask, request
 #request object allows us to access data in request user sent to server
 #via python 
 
+import os # ADDED FOR TEMPLATES
+import jinja2 # ADDED FOR TEMPLATES
+
+# JOINS LOCATION OF CURRENT LOCATION OF FILE WITH DIRECTORY TO CREATE A NEW DIRECTORY, THE DIRECTORY THAT HOLDS TEMPLATES
+template_dir = os.path.join(os.path.dirname(__file__), 'templates')
+
+# INITIALIZE JINJA ENGINE, FILE SYSTEM LOADER
+jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir))
+
 app = Flask(__name__)
 app.config['DEBUG'] = True
 

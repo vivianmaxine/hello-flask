@@ -1,4 +1,5 @@
 from flask import Flask, request, redirect
+import cgi # HTML Escape --> User data, prevents breakage
 #request object allows us to access data in request user sent to server
 #via python 
 
@@ -73,7 +74,9 @@ def greeting():
     user_name = request.form['user_name']
     origin_city = request.form['origin_city']
 
-    greeting = '<h1>Hello, ' + salutation + user_name + '!</h1> <h3>We hope you had a safe trip from ' + origin_city + '!</h3>'
+    # HTML escaping using cgi.escape() format. Must import cgi above!
+    # Cgi import not a part of flask, so list separately
+    greeting = '<h1>Hello, ' + salutation + cgi.escape(user_name) + '!</h1> <h3>We hope you had a safe trip from ' + origin_city + '!</h3>'
 
     return greeting
 
