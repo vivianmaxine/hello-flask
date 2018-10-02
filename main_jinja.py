@@ -40,11 +40,11 @@ def greeting():
     #use get request object by using request.args.get with name
     salutation = request.form['salutation'] #.form[] vs. .args.get()
     user_name = request.form['user_name']
-    origin_city = request.form['origin_city']
+    my_city = request.form['origin_city']
 
-    greeting = '<h1>Hello, ' + cgi.escape(salutation) + cgi.escape(user_name) + '!</h1> <h3>We hope you had a safe trip from ' + cgi.escap(origin_city) + '!</h3>'
+    template = jinja_env.get_template('hello_greeting.html')
 
-    return greeting
+    return template.render(salutation = salutation, user_name = user_name, origin_city = my_city)
 
 
 """
