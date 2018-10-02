@@ -9,7 +9,7 @@ import jinja2 # ADDED FOR TEMPLATES
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 
 # INITIALIZE JINJA ENGINE, FILE SYSTEM LOADER
-jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir))
+jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir), autoescape=True) #APPLIES HTML ESCAPE TO ALL
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
