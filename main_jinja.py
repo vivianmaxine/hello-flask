@@ -5,7 +5,7 @@ import cgi
 import os # ADDED FOR TEMPLATES
 import jinja2 # ADDED FOR TEMPLATES
 
-# JOINS LOCATION OF CURRENT LOCATION OF FILE WITH DIRECTORY TO CREATE A NEW DIRECTORY, THE DIRECTORY THAT HOLDS TEMPLATES
+# JOINS LOCATION OF CURRENT LOCATION OF FILE WITH DIRECTORY TO CREATE A NEW DIRECTORY (THE DIRECTORY THAT HOLDS TEMPLATES)
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 
 # INITIALIZE JINJA ENGINE, FILE SYSTEM LOADER
@@ -44,7 +44,7 @@ def greeting():
 
     template = jinja_env.get_template('hello_greeting.html')
 
-    return template.render(salutation = salutation, user_name = user_name, origin_city = my_city)
+    return template.render(salutation=salutation, user_name=user_name, origin_city=my_city)
 
 
 """
